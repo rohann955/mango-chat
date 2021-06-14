@@ -91,7 +91,7 @@ io.on("connection", function(socket) {
   });
 
   socket.emit("message", {
-    text: "Welcome to Chat Appliction !",
+    text: "Welcome to Chat Appliction! Go to https://github.com/rohann955/mango-chat/blob/main/README.md for source code and info.",
     timestamp: moment().valueOf(),
     name: "System"
   });
