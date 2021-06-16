@@ -176,7 +176,7 @@
    else if (Notification.permission === "granted") {
      // If it's okay let's create a notification
      //  var notification = new Notification(msg);
-     var notification = new Notification('Chat App', {
+     var notification = new Notification('Mango Chat', {
        body: msg.name + ": " + msg.text,
        icon: '/images/apple-icon.png' // optional
      });
@@ -198,7 +198,7 @@
      Notification.requestPermission(function(permission) {
        // If the user accepts, let's create a notification
        if (permission === "granted") {
-         var notification = new Notification('Chat App', {
+         var notification = new Notification('Mango Chat', {
            body: msg.name + ": " + msg.text,
            icon: '/images/apple-icon.png' // optional
          });
