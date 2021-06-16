@@ -116,3 +116,22 @@ io.on("connection", function(socket) {
 http.listen(PORT, function() {
   console.log("server started");
 });
+
+
+let userList = new Map();
+
+io.on('connection', (socket) => {
+    let userName = socket.handshake.query.userName;
+    addUser(userName, socket.id);
+
+    socket.broadcast.emit('user-list', [...userList.keys()]);
+    socket.emit('user-list', [...userList.keys()]);
+
+    socket.on('message', (msg) => {
+        socket.broadcast.emit('message-broadcast', {message: msg, userName: userName});
+    })
+
+    socket.on('disconnect', (reason) => {
+        removeUser(userName, socket.id);
+    })
+});
